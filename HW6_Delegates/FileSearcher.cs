@@ -10,12 +10,20 @@ namespace HW6_Delegates
 {
     public class FileSearcher
     {
-        delegate void OnFileFound(FileArgs fileArgs);
-        event OnFileFound FileFoundNotify;
         public List<FileInfo> FileInfoList = new List<FileInfo>();
+
+        bool SearchCancelled = false;
+
+        delegate void OnFileFound(FileArgs fileArgs);
+        event OnFileFound FileFoundNotifyEvent;
+
+        delegate void OnSearchCancel(ConsoleKeyInfo keyEvent);
+        event OnSearchCancel FileSearchingCanceledEvent;
+
         public FileSearcher()
         {
-            FileFoundNotify += FileFoundEventHandler;
+            FileFoundNotifyEvent += FileFoundEventHandler;
+            FileSearchingCanceledEvent += SearchingCanceledEventHandler;
         }
 
         public void ScanFolderForFiles(string folderPath)
@@ -24,17 +32,35 @@ namespace HW6_Delegates
             {
                 foreach (var fileName in Directory.GetFiles(folderPath).ToList())
                 {
-                    FileInfo fileInfo = new FileInfo($"{fileName}");
-                    FileFoundNotify?.Invoke(new FileArgs { FoundFileInfo = fileInfo } );
-                    FileInfoList.Add(fileInfo);
+                    if (!SearchCancelled && !Console.KeyAvailable)
+                    {
+                        FileInfo fileInfo = new FileInfo($"{fileName}");
+                        FileFoundNotifyEvent?.Invoke(new FileArgs { FoundFileInfo = fileInfo });
+                        FileInfoList.Add(fileInfo);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Поиск отменен пользователем");
+                        break;
+                    }
                 }
             }
+            else
+            {
+                Console.WriteLine($"Папка по пути {folderPath} не найдена");
+            }
         }
-
         private void FileFoundEventHandler(FileArgs fileArgs)
         {
             Task.Delay(300).Wait();
             Console.WriteLine($"Найден файл {fileArgs.FoundFileInfo.Name} размером {fileArgs.FoundFileInfo.Length} байт");
+        }
+        private void SearchingCanceledEventHandler(ConsoleKeyInfo keyEvent)
+        {
+            if (keyEvent.Key == ConsoleKey.Spacebar)
+            {
+                SearchCancelled = true;
+            }
         }
     }
 

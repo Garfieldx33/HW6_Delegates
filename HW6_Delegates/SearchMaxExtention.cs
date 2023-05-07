@@ -16,7 +16,13 @@ namespace HW6_Delegates
             {
                 resultDict.Add(getParameter(enumerator.Current), enumerator.Current);
             }
-            return resultDict.OrderByDescending(x => x.Key).First().Value;
+            if (resultDict.Count > 0)
+            {
+                return resultDict.OrderByDescending(x => x.Key).First().Value; }
+            else
+            {
+                return null;
+            }
         }
     }
 }
