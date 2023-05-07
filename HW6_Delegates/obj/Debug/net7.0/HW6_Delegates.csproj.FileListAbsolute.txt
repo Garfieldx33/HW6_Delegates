@@ -1,0 +1,15 @@
+C:\Users\LAS\source\repos\HW6_Delegates\HW6_Delegates\bin\Debug\net7.0\HW6_Delegates.exe
+C:\Users\LAS\source\repos\HW6_Delegates\HW6_Delegates\bin\Debug\net7.0\HW6_Delegates.deps.json
+C:\Users\LAS\source\repos\HW6_Delegates\HW6_Delegates\bin\Debug\net7.0\HW6_Delegates.runtimeconfig.json
+C:\Users\LAS\source\repos\HW6_Delegates\HW6_Delegates\bin\Debug\net7.0\HW6_Delegates.dll
+C:\Users\LAS\source\repos\HW6_Delegates\HW6_Delegates\bin\Debug\net7.0\HW6_Delegates.pdb
+C:\Users\LAS\source\repos\HW6_Delegates\HW6_Delegates\obj\Debug\net7.0\HW6_Delegates.csproj.AssemblyReference.cache
+C:\Users\LAS\source\repos\HW6_Delegates\HW6_Delegates\obj\Debug\net7.0\HW6_Delegates.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LAS\source\repos\HW6_Delegates\HW6_Delegates\obj\Debug\net7.0\HW6_Delegates.AssemblyInfoInputs.cache
+C:\Users\LAS\source\repos\HW6_Delegates\HW6_Delegates\obj\Debug\net7.0\HW6_Delegates.AssemblyInfo.cs
+C:\Users\LAS\source\repos\HW6_Delegates\HW6_Delegates\obj\Debug\net7.0\HW6_Delegates.csproj.CoreCompileInputs.cache
+C:\Users\LAS\source\repos\HW6_Delegates\HW6_Delegates\obj\Debug\net7.0\HW6_Delegates.dll
+C:\Users\LAS\source\repos\HW6_Delegates\HW6_Delegates\obj\Debug\net7.0\refint\HW6_Delegates.dll
+C:\Users\LAS\source\repos\HW6_Delegates\HW6_Delegates\obj\Debug\net7.0\HW6_Delegates.pdb
+C:\Users\LAS\source\repos\HW6_Delegates\HW6_Delegates\obj\Debug\net7.0\HW6_Delegates.genruntimeconfig.cache
+C:\Users\LAS\source\repos\HW6_Delegates\HW6_Delegates\obj\Debug\net7.0\ref\HW6_Delegates.dll
