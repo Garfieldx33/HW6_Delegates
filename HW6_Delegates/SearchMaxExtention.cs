@@ -10,7 +10,22 @@ namespace HW6_Delegates
     {
         public static T GetMax(IEnumerable<T> e, Func<T, float> getParameter)
         {
-            Dictionary<float, T> resultDict = new Dictionary<float, T>();
+            if (e != null)
+            {
+                if (e.Any())
+                {
+                    return GetMaxElement(e.ToArray(), getParameter); 
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null; 
+            }
+            /*Dictionary<float, T> resultDict = new Dictionary<float, T>();
             var enumerator = e.GetEnumerator();
             while (enumerator.MoveNext())
             {
@@ -18,11 +33,31 @@ namespace HW6_Delegates
             }
             if (resultDict.Count > 0)
             {
-                return resultDict.OrderByDescending(x => x.Key).First().Value; }
-            else
+                return resultDict.OrderByDescending(x => x.Key).First().Value; 
+*/
+        }
+
+        static T GetMaxElement(T[] array, Func<T, float> getParameter)
+        {
+            var len = array.Length;
+            for (var i = 1; i < len; i++)
             {
-                return null;
+                for (var j = 0; j < len - i; j++)
+                {
+                    if (getParameter(array[j]) < getParameter(array[j + 1]))
+                    {
+                        Swap(ref array[j], ref array[j + 1]);
+                    }
+                }
             }
+
+            return array[0];
+        }
+        static void Swap(ref T e1, ref T e2)
+        {
+            T temp = e1;
+            e1 = e2;
+            e2 = temp;
         }
     }
 }
